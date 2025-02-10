@@ -18,7 +18,7 @@ export function WhatWeDo() {
           className="text-center"
         >
           <div className="inline-block px-4 py-1.5 rounded-full text-sm bg-[#222] border border-[#333] mb-8">
-            What We Do
+            My Specialty
           </div>
           <h2 className="text-4xl md:text-6xl lg:text-7xl tracking-tight leading-tight">
             <span className="text-gray-500">I develop stunning websites</span>{" "}

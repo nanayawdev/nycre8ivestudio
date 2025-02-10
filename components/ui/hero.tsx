@@ -84,7 +84,7 @@ export function Hero({ className, ...props }: HeroProps) {
             transition={{ delay: 0.5 }}
             className="text-6xl md:text-8xl font-normal text-white mb-6 tracking-tight"
           >
-            Crafting Digital <br />Experiences
+            Crafting Digital <br />Dreams
           </motion.h1>
 
           {/* Subtitle */}
@@ -104,11 +104,8 @@ export function Hero({ className, ...props }: HeroProps) {
             transition={{ delay: 0.7 }}
             className="flex flex-wrap justify-center gap-4"
           >
-            <button className="px-8 py-4 rounded-full bg-white text-black hover:bg-gray-100 transition-colors">
-              Get in Touch
-            </button>
             <button className="px-8 py-4 rounded-full text-white border border-white/20 hover:bg-white/10 transition-colors">
-              Our Portfolio
+              View My Portfolio
             </button>
           </motion.div>
         </div>
