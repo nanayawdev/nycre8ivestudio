@@ -21,10 +21,10 @@ export function WhatWeDo() {
             What We Do
           </div>
           <h2 className="text-4xl md:text-6xl lg:text-7xl tracking-tight leading-tight">
-            <span className="text-gray-500">We help businesses like yours</span>{" "}
-            <span className="text-white">define what makes them unique</span>{" "}
-            <span className="text-gray-500">and convert that into a</span>{" "}
-            <span className="text-white">best-in-class digital experience.</span>
+            <span className="text-gray-500">I develop stunning websites</span>{" "}
+            <span className="text-white">and mobile apps</span>{" "}
+            <span className="text-gray-500">that redefine how people</span>{" "}
+            <span className="text-white">interact with technology.</span>
           </h2>
         </motion.div>
       </div>
