@@ -45,7 +45,7 @@ export function Features() {
           <h2 className="text-4xl md:text-5xl lg:text-6xl text-center tracking-tight leading-tight">
             <span className="text-gray-500">We prioritize</span>{" "}
             <span className="text-white">exceptional customer service,</span>{" "}
-            <span className="text-gray-500">meeting every client's needs throughout development and design.</span>
+            <span className="text-gray-500">meeting every client&apos;s needs throughout development and design.</span>
           </h2>
 
           <div className="grid md:grid-cols-2 gap-8">

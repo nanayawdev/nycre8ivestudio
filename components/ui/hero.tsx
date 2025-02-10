@@ -4,7 +4,9 @@ import type * as React from "react"
 import { motion } from "framer-motion"
 import { cn } from "../../lib/utils"
 
-interface HeroProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface HeroProps {
+  className?: string;
+}
 
 export function Hero({ className, ...props }: HeroProps) {
   return (
