@@ -45,7 +45,7 @@ export function Hero({ className, ...props }: HeroProps) {
         {/* Navigation */}
         <nav className="flex justify-between items-center px-8 py-8 md:px-12">
           <div className="text-white font-bold text-xl tracking-tight">
-            NUTS <span className="font-light">DEV</span>
+            NYCRE8IVE <span className="font-light">STUDIO</span>
           </div>
           <div className="flex items-center gap-6 md:gap-10">
             <a href="#portfolio" className="text-gray-300 hover:text-white text-sm transition-colors">
@@ -82,7 +82,7 @@ export function Hero({ className, ...props }: HeroProps) {
             transition={{ delay: 0.5 }}
             className="text-6xl md:text-8xl font-normal text-white mb-6 tracking-tight"
           >
-            We Speak <br /> Fluent Design
+            Crafting Digital <br />Experiences
           </motion.h1>
 
           {/* Subtitle */}
@@ -92,7 +92,7 @@ export function Hero({ className, ...props }: HeroProps) {
             transition={{ delay: 0.6 }}
             className="text-gray-400 text-lg mb-12"
           >
-            Love your digital look. NutsDev makes it happen.
+            I am a passionate web developer specialized in <br /> building sleek, high-performance websites and applications
           </motion.p>
 
           {/* CTA Buttons */}

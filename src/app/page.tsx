@@ -1,9 +1,21 @@
 import { Hero } from "../../components/ui/hero"
+import { WhatWeDo } from "../../components/sections/what-we-do"
+import { HowWeWork } from "../../components/sections/how-we-work"
+import { Highlights } from "../../components/sections/highlights"
+import { Features } from "../../components/sections/features"
+import { CTAButton } from "../../components/ui/cta-button"
 
 export default function Home() {
   return (
-    <main>
+    <main className="bg-[#111111] text-white">
       <Hero />
+      <WhatWeDo />
+      <HowWeWork />
+      <Highlights />
+      <Features />
+      <div className="flex items-center justify-center py-24">
+        <CTAButton text="Let's Get Started" href="/contact" />
+      </div>
     </main>
   )
 }
