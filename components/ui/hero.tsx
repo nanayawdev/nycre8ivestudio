@@ -1,14 +1,18 @@
 "use client"
 
+import { useState } from "react"
 import type * as React from "react"
 import { motion } from "framer-motion"
 import { cn } from "../../lib/utils"
+import { ResumeSheet } from "./resume-sheet"
 
 interface HeroProps {
   className?: string;
 }
 
 export function Hero({ className, ...props }: HeroProps) {
+  const [isResumeOpen, setIsResumeOpen] = useState(false)
+
   const scrollToPortfolio = () => {
     document.getElementById('portfolio')?.scrollIntoView({ 
       behavior: 'smooth',
@@ -57,9 +61,12 @@ export function Hero({ className, ...props }: HeroProps) {
             NY<span className="font-light">CRE8IVE</span>
           </div>
           <div className="flex items-center gap-6 md:gap-10">
-            <a href="#about" className="text-gray-300 hover:text-white text-sm transition-colors">
-              About
-            </a>
+            <button 
+              onClick={() => setIsResumeOpen(true)}
+              className="text-gray-300 hover:text-white text-sm transition-colors"
+            >
+              Resume
+            </button>
           </div>
         </nav>
 
@@ -114,6 +121,11 @@ export function Hero({ className, ...props }: HeroProps) {
           </motion.div>
         </div>
       </div>
+
+      <ResumeSheet 
+        isOpen={isResumeOpen} 
+        onClose={() => setIsResumeOpen(false)} 
+      />
     </div>
   )
 }
