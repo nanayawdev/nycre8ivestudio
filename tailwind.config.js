@@ -68,7 +68,11 @@ module.exports = {
           '0%, 100%': { backgroundPosition: '0% 50%' },
           '50%': { backgroundPosition: '100% 50%' },
         }
-      }
+      },
+      screens: {
+        'xs': '475px',
+        // ... other screens
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],
