@@ -26,7 +26,7 @@ export function Footer() {
                 whileInView={{ opacity: 1, y: 0 }}
                 className="text-7xl md:text-8xl font-display leading-none"
               >
-                LET'S<br />CONNECT!
+                LET&apos;S<br />CONNECT!
               </motion.h2>
             </div>
             <div>

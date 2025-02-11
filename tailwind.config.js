@@ -13,6 +13,7 @@ module.exports = {
       animation: {
         "glow-1": "glow1 10s infinite ease-in-out",
         "glow-2": "glow2 12s infinite ease-in-out",
+        shine: 'shine 1.5s ease-in-out infinite'
       },
       colors: {
         border: "hsl(var(--border))",
@@ -57,6 +58,12 @@ module.exports = {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
       },
+      keyframes: {
+        shine: {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(100%)' }
+        }
+      }
     },
   },
   plugins: [require("tailwindcss-animate")],
