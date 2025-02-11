@@ -57,12 +57,6 @@ export function Hero({ className, ...props }: HeroProps) {
             NY<span className="font-light">CRE8IVE</span>
           </div>
           <div className="flex items-center gap-6 md:gap-10">
-            <a href="#portfolio" className="text-gray-300 hover:text-white text-sm transition-colors">
-              Portfolio
-            </a>
-            <a href="#services" className="text-gray-300 hover:text-white text-sm transition-colors">
-              Services
-            </a>
             <a href="#about" className="text-gray-300 hover:text-white text-sm transition-colors">
               About
             </a>
