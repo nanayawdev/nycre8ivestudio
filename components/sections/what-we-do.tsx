@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 
 export function WhatWeDo() {
   return (
-    <section className="relative min-h-screen bg-[#111111] flex items-center justify-center px-4 py-12">
+    <section className="relative bg-[#111111] flex items-center justify-center px-4 py-12">
       {/* Grid Background */}
       <div className="absolute inset-0 opacity-[0.2]">
         <div className="absolute w-full h-full bg-[linear-gradient(to_right,#222_1px,transparent_1px),linear-gradient(to_bottom,#222_1px,transparent_1px)] bg-[size:44px_44px]" />
