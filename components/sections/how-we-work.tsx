@@ -61,7 +61,7 @@ const processSteps: ProcessStep[] = [
   },
 ]
 
-function ProcessCard({ step, index }: { step: ProcessStep; index: number }) {
+function ProcessCard({ step }: { step: ProcessStep }) {
   const cardRef = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
     target: cardRef,
@@ -119,8 +119,8 @@ export function HowWeWork() {
         </div>
 
         <div className="space-y-8">
-          {processSteps.map((step, index) => (
-            <ProcessCard key={index} step={step} index={index} />
+          {processSteps.map((step) => (
+            <ProcessCard key={step.number} step={step} />
           ))}
         </div>
       </div>
