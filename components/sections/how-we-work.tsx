@@ -10,6 +10,7 @@ interface ProcessStep {
   title: string
   description: string
   duration: string
+  url: string
   icon: React.ReactNode
   glowColor: string
 }
@@ -17,9 +18,10 @@ interface ProcessStep {
 const processSteps: ProcessStep[] = [
   {
     number: "01",
-    title: "Discuss Ideas &\nRequirements",
-    description: "We collaborate with you to understand your goals, target audience, and project scope.",
-    duration: "2 Hours",
+    title: "Healthier BT\nSolutions",
+    description: "A comprehensive healthcare solutions platform focused on providing better healthcare services and solutions.",
+    duration: "View Project",
+    url: "https://healthierbtsolutions.com",
     icon: (
       <div className="relative w-24 h-24">
         <div className="absolute right-0 w-16 h-24 bg-red-500/30 blur-2xl" />
@@ -31,10 +33,10 @@ const processSteps: ProcessStep[] = [
   },
   {
     number: "02",
-    title: "From Concept to\nFinal Design",
-    description:
-      "We translate your vision into stunning concepts with your active involvement, iterating to achieve a flawless final design that resonates with your audience.",
-    duration: "2-5 Days",
+    title: "Thomisia Travel\n& Tour",
+    description: "A modern travel and tour website showcasing destinations and booking services for adventurous travelers.",
+    duration: "View Project",
+    url: "https://thomisiatravelandtour.com",
     icon: (
       <div className="relative w-24 h-24">
         <div className="absolute right-0 w-16 h-16 bg-amber-500/30 blur-2xl" />
@@ -46,10 +48,10 @@ const processSteps: ProcessStep[] = [
   },
   {
     number: "03",
-    title: "Development,\nTesting & Launch",
-    description:
-      "We transform design into a seamless digital experience, rigorously test across platforms, celebrate your success, ensure smooth rollout, and continuously optimize for growth.",
-    duration: "2-4 Days",
+    title: "NY Cre8ive\nStudio",
+    description: "A creative digital agency portfolio showcasing web development and design services.",
+    duration: "View Project",
+    url: "https://nycre8ivestudio.com",
     icon: (
       <div className="relative w-24 h-24">
         <div className="absolute right-0 w-16 h-16 bg-emerald-500/30 blur-2xl" />
@@ -58,6 +60,21 @@ const processSteps: ProcessStep[] = [
       </div>
     ),
     glowColor: "from-emerald-500/20 via-emerald-500/10 to-transparent",
+  },
+  {
+    number: "04",
+    title: "Atinka\nNews",
+    description: "A dynamic news platform delivering the latest updates and stories to readers.",
+    duration: "View Project",
+    url: "https://atinkanews.net",
+    icon: (
+      <div className="relative w-24 h-24">
+        <div className="absolute right-0 w-16 h-16 bg-blue-500/30 blur-2xl" />
+        <div className="relative z-10 w-16 h-16 bg-white/10 backdrop-blur-xl rounded-2xl" />
+        <div className="absolute top-2 right-2 z-20 w-16 h-16 bg-blue-500/50 rounded-2xl" />
+      </div>
+    ),
+    glowColor: "from-blue-500/20 via-blue-500/10 to-transparent",
   },
 ]
 
@@ -83,9 +100,9 @@ function ProcessCard({ step }: { step: ProcessStep }) {
       className="relative"
     >
       <div className="bg-[#161616] rounded-3xl p-12 relative overflow-hidden group hover:bg-[#1a1a1a] transition-colors">
-        {/* Gradient background */}
+        {/* Gradient background - modified opacity values */}
         <div
-          className={`absolute inset-0 bg-gradient-radial ${step.glowColor} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
+          className={`absolute inset-0 bg-gradient-radial ${step.glowColor} opacity-40 group-hover:opacity-100 transition-opacity duration-500`}
         />
 
         <div className="relative z-10 flex flex-col md:flex-row gap-8 items-start">
@@ -93,10 +110,15 @@ function ProcessCard({ step }: { step: ProcessStep }) {
             <div className="text-gray-500 text-xl">{step.number}</div>
             <h3 className="text-3xl md:text-4xl text-white whitespace-pre-line">{step.title}</h3>
             <p className="text-gray-400 max-w-2xl">{step.description}</p>
-            <div className="inline-flex items-center text-sm text-gray-400 bg-white/5 px-4 py-2 rounded-full">
+            <a 
+              href={step.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center text-sm text-gray-400 bg-white/5 px-4 py-2 rounded-full hover:bg-white/10 transition-colors"
+            >
               <Clock className="w-4 h-4 mr-2" />
               {step.duration}
-            </div>
+            </a>
           </div>
           <div className="flex-shrink-0">{step.icon}</div>
         </div>
@@ -107,7 +129,7 @@ function ProcessCard({ step }: { step: ProcessStep }) {
 
 export function HowWeWork() {
   return (
-    <section className="relative min-h-screen bg-[#111111] px-4 py-32">
+    <section id="portfolio" className="relative bg-[#111111] px-4 py-32">
       <div className="max-w-6xl mx-auto">
         <div className="space-y-4 mb-24">
           <div className="inline-block px-4 py-1.5 rounded-full text-sm bg-[#222] border border-[#333]">

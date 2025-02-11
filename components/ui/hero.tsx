@@ -9,6 +9,13 @@ interface HeroProps {
 }
 
 export function Hero({ className, ...props }: HeroProps) {
+  const scrollToPortfolio = () => {
+    document.getElementById('portfolio')?.scrollIntoView({ 
+      behavior: 'smooth',
+      block: 'start'
+    })
+  }
+
   return (
     <div className={cn("relative min-h-screen bg-[#111111] overflow-hidden", className)} {...props}>
       {/* Animated gradient background */}
@@ -47,7 +54,7 @@ export function Hero({ className, ...props }: HeroProps) {
         {/* Navigation */}
         <nav className="flex justify-between items-center px-8 py-8 md:px-12">
           <div className="text-white font-bold text-xl tracking-tight">
-            NYCRE8IVE <span className="font-light">STUDIO</span>
+            NY<span className="font-light">CRE8IVE</span>
           </div>
           <div className="flex items-center gap-6 md:gap-10">
             <a href="#portfolio" className="text-gray-300 hover:text-white text-sm transition-colors">
@@ -104,7 +111,10 @@ export function Hero({ className, ...props }: HeroProps) {
             transition={{ delay: 0.7 }}
             className="flex flex-wrap justify-center gap-4"
           >
-            <button className="px-8 py-4 rounded-full text-white border border-white/20 hover:bg-white/10 transition-colors">
+            <button 
+              onClick={scrollToPortfolio}
+              className="px-8 py-4 rounded-full text-white border border-white/20 hover:bg-white/10 transition-colors"
+            >
               View My Portfolio
             </button>
           </motion.div>
