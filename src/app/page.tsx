@@ -17,7 +17,7 @@ export default function Home() {
       <TechStack />
       <Features />
       <div className="flex items-center justify-center py-24">
-        <CTAButton text="Reach Out Here" href="/contact" />
+        <CTAButton text="Reach Out Here" />
       </div>
       <Footer />
     </main>
