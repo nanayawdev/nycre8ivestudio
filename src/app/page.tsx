@@ -5,6 +5,7 @@ import { Highlights } from "../../components/sections/highlights"
 import { Features } from "../../components/sections/features"
 import { CTAButton } from "../../components/ui/cta-button"
 import { TechStack } from "../../components/sections/tech-stack"
+import { Footer } from "../../components/sections/footer"
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <div className="flex items-center justify-center py-24">
         <CTAButton text="Let's Get Started" href="/contact" />
       </div>
+      <Footer />
     </main>
   )
 }

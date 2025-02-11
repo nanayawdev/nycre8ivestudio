@@ -1,0 +1,111 @@
+"use client"
+
+import { motion } from "framer-motion"
+import Image from "next/image"
+import Link from "next/link"
+
+export function Footer() {
+  return (
+    <footer className="bg-[#111111] px-4 py-32">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex flex-col md:flex-row justify-between items-start gap-16">
+          {/* Left side */}
+          <div className="space-y-8">
+            <div className="flex items-start gap-6">
+              <div className="w-16 h-16 rounded-full overflow-hidden flex-shrink-0">
+                <Image
+                  src="/ny.jpg"
+                  alt="Profile"
+                  width={64}
+                  height={64}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <motion.h2 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                className="text-7xl md:text-8xl font-display leading-none"
+              >
+                LET'S<br />CONNECT!
+              </motion.h2>
+            </div>
+            <div>
+              <Link href="/" className="text-2xl text-white hover:text-gray-300 transition-colors">
+                Ny Cre8ive Studio
+              </Link>
+            </div>
+          </div>
+
+          {/* Right side */}
+          <div className="space-y-12">
+            {/* Contact info */}
+            <div className="space-y-4">
+              <div className="text-sm text-gray-500">
+                Email Address
+              </div>
+              <Link 
+                href="mailto:hello@website.com"
+                className="text-2xl md:text-3xl text-white hover:text-gray-300 transition-colors"
+              >
+                hello@website.com
+              </Link>
+            </div>
+
+            <div className="space-y-4">
+              <div className="text-sm text-gray-500">
+                Contact
+              </div>
+              <Link 
+                href="tel:(555)123-4567"
+                className="text-2xl md:text-3xl text-white hover:text-gray-300 transition-colors"
+              >
+                (555) 123-4567
+              </Link>
+            </div>
+
+            {/* Social links */}
+            <div className="flex gap-4">
+              <Link 
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3 rounded-full border border-white/10 text-gray-400 hover:text-white hover:border-white/20 transition-colors"
+              >
+                Linkedin
+              </Link>
+              <Link 
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3 rounded-full border border-white/10 text-gray-400 hover:text-white hover:border-white/20 transition-colors"
+              >
+                Twitter
+              </Link>
+              <Link 
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3 rounded-full border border-white/10 text-gray-400 hover:text-white hover:border-white/20 transition-colors"
+              >
+                Instagram
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom bar */}
+        <div className="flex justify-between items-center mt-32 pt-8 border-t border-white/10">
+          <div className="text-sm text-gray-500">
+            ©2025- All Rights Reserved
+          </div>
+          <button 
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="text-sm text-gray-500 hover:text-white transition-colors"
+          >
+            Back to Top ↑
+          </button>
+        </div>
+      </div>
+    </footer>
+  )
+} 
