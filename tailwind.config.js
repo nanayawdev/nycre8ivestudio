@@ -13,7 +13,8 @@ module.exports = {
       animation: {
         "glow-1": "glow1 10s infinite ease-in-out",
         "glow-2": "glow2 12s infinite ease-in-out",
-        shine: 'shine 1.5s ease-in-out infinite'
+        shine: 'shine 1.5s ease-in-out infinite',
+        border: 'border 8s ease infinite',
       },
       colors: {
         border: "hsl(var(--border))",
@@ -62,6 +63,10 @@ module.exports = {
         shine: {
           '0%': { transform: 'translateX(-100%)' },
           '100%': { transform: 'translateX(100%)' }
+        },
+        border: {
+          '0%, 100%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
         }
       }
     },
