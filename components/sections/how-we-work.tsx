@@ -100,9 +100,14 @@ function ProcessCard({ step }: { step: ProcessStep }) {
       className="relative"
     >
       <div className="bg-[#161616] rounded-3xl p-12 relative overflow-hidden group hover:bg-[#1a1a1a] transition-colors">
-        {/* Gradient background - modified opacity values */}
+        {/* Increased base opacity and hover opacity */}
         <div
-          className={`absolute inset-0 bg-gradient-radial ${step.glowColor} opacity-40 group-hover:opacity-100 transition-opacity duration-500`}
+          className={`absolute inset-0 bg-gradient-radial ${step.glowColor} opacity-60 group-hover:opacity-100 transition-opacity duration-500`}
+        />
+        
+        {/* Added additional glow layer */}
+        <div
+          className={`absolute inset-0 bg-gradient-to-br ${step.glowColor} blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500`}
         />
 
         <div className="relative z-10 flex flex-col md:flex-row gap-8 items-start">
