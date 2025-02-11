@@ -1,7 +1,7 @@
 "use client"
 
 import { motion, AnimatePresence } from "framer-motion"
-import { X, ChevronDown } from "lucide-react"
+import { X, ChevronDown, Loader2 } from "lucide-react"
 import { useState } from "react"
 
 interface ContactFormProps {
@@ -22,12 +22,22 @@ export function ContactForm({ isOpen, onClose }: ContactFormProps) {
   const [service, setService] = useState("")
   const [isServiceOpen, setIsServiceOpen] = useState(false)
   const [message, setMessage] = useState("")
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission here
-    console.log({ email, phone, service, message })
-    onClose()
+    setIsSubmitting(true)
+    
+    try {
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 2000))
+      console.log({ email, phone, service, message })
+      onClose()
+    } catch (error) {
+      console.error('Error submitting form:', error)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -166,12 +176,52 @@ export function ContactForm({ isOpen, onClose }: ContactFormProps) {
                     required 
                   />
 
-                  <button
+                  <motion.button
                     type="submit"
-                    className="w-full px-8 py-4 rounded-xl bg-white text-black hover:bg-gray-100 transition-colors"
+                    disabled={isSubmitting}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className={`relative w-full px-8 py-4 rounded-xl text-black transition-all duration-200 overflow-hidden group
+                      ${isSubmitting ? 'bg-gray-200 cursor-not-allowed' : 'bg-white hover:bg-gray-100'}`}
                   >
-                    Send Message
-                  </button>
+                    {/* Button background shine effect */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
+                    
+                    {/* Button content */}
+                    <div className="relative flex items-center justify-center gap-2">
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className="w-5 h-5 animate-spin" />
+                          <span>Sending...</span>
+                        </>
+                      ) : (
+                        <>
+                          <span>Send Message</span>
+                          <motion.div
+                            initial={{ x: 0 }}
+                            animate={{ x: [0, 5, 0] }}
+                            transition={{
+                              duration: 1.5,
+                              repeat: Infinity,
+                              ease: "easeInOut",
+                            }}
+                          >
+                            →
+                          </motion.div>
+                        </>
+                      )}
+                    </div>
+
+                    {/* Loading progress bar */}
+                    {isSubmitting && (
+                      <motion.div
+                        initial={{ width: "0%" }}
+                        animate={{ width: "100%" }}
+                        transition={{ duration: 2 }}
+                        className="absolute bottom-0 left-0 h-1 bg-black/10"
+                      />
+                    )}
+                  </motion.button>
                 </form>
               </div>
             </motion.div>
