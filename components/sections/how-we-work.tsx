@@ -1,7 +1,7 @@
 "use client"
 
 import { useRef, useState, useEffect } from "react"
-import { motion, useTransform, useScroll } from "framer-motion"
+import { motion } from "framer-motion"
 import { Clock, ChevronLeft, ChevronRight } from "lucide-react"
 import type React from "react"
 
