@@ -42,6 +42,14 @@ export function CookieConsent() {
               {/* Gradient overlay */}
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-gray-800/50 via-transparent to-transparent" />
 
+              {/* Close button - adjusted positioning */}
+              <button
+                onClick={handleDecline}
+                className="absolute -top-2 -right-2 p-2 rounded-full bg-[#161616] border border-white/10 text-gray-500 hover:text-white transition-colors z-10"
+              >
+                <X className="w-4 h-4" />
+              </button>
+
               {/* Content */}
               <div className="relative flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-8">
                 <div className="flex-1 space-y-4">
@@ -67,14 +75,6 @@ export function CookieConsent() {
                     Accept All
                   </button>
                 </div>
-
-                {/* Close button */}
-                <button
-                  onClick={handleDecline}
-                  className="absolute top-4 right-4 text-gray-500 hover:text-white transition-colors"
-                >
-                  <X className="w-5 h-5" />
-                </button>
               </div>
             </div>
           </div>
