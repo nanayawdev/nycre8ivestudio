@@ -44,10 +44,10 @@ export function Footer() {
                 Email Address
               </div>
               <Link 
-                href="mailto:hello@website.com"
+                href="mailto:nanayawisrael@gmail.com"
                 className="text-2xl md:text-3xl text-white hover:text-gray-300 transition-colors"
               >
-                hello@website.com
+                nanayawisrael@gmail.com
               </Link>
             </div>
 
@@ -56,17 +56,17 @@ export function Footer() {
                 Contact
               </div>
               <Link 
-                href="tel:(555)123-4567"
+                href="tel:+233599326736"
                 className="text-2xl md:text-3xl text-white hover:text-gray-300 transition-colors"
               >
-                (555) 123-4567
+                +233599326736
               </Link>
             </div>
 
             {/* Social links */}
             <div className="flex gap-4">
               <Link 
-                href="https://linkedin.com"
+                href="https://linkedin.com/in/nanayawisrael"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-6 py-3 rounded-full border border-white/10 text-gray-400 hover:text-white hover:border-white/20 transition-colors"
@@ -74,7 +74,7 @@ export function Footer() {
                 Linkedin
               </Link>
               <Link 
-                href="https://twitter.com"
+                href="https://twitter.com/nycre8ivestudio"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-6 py-3 rounded-full border border-white/10 text-gray-400 hover:text-white hover:border-white/20 transition-colors"
@@ -82,7 +82,7 @@ export function Footer() {
                 Twitter
               </Link>
               <Link 
-                href="https://instagram.com"
+                href="https://instagram.com/nanayaw.dev"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-6 py-3 rounded-full border border-white/10 text-gray-400 hover:text-white hover:border-white/20 transition-colors"

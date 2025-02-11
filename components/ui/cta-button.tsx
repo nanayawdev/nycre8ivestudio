@@ -21,8 +21,8 @@ export function CTAButton({ text, href, className }: CTAButtonProps) {
       whileTap={{ scale: 0.95 }}
     >
       <span className="relative z-10">{text}</span>
-      <div className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white transition-transform duration-300 group-hover:rotate-45">
-        <ArrowRight className="h-6 w-6 text-orange-600" />
+      <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-white transition-transform duration-300 group-hover:rotate-45">
+        <ArrowRight className="h-8 w-8 text-orange-600" />
       </div>
 
       {/* Glow effects */}
