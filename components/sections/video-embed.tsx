@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { createClient } from "@supabase/supabase-js"
+import { toast } from 'sonner'
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
@@ -19,8 +20,7 @@ export function VideoEmbed() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!supabase) {
-      console.error('Supabase client not initialized')
-      alert('Configuration error. Please try again later.')
+      toast.error('Configuration error. Please try again later.')
       return
     }
 
@@ -49,10 +49,20 @@ export function VideoEmbed() {
       setUrl("")
       setTitle("")
       setDescription("")
-      alert("Video added successfully!")
+      
+      toast.success('Video added successfully!', {
+        description: 'Your video has been added to the gallery.',
+        duration: 5000,
+        action: {
+          label: 'View Gallery',
+          onClick: () => window.location.href = '/videos'
+        }
+      })
     } catch (error) {
       console.error('Error adding video:', error)
-      alert("Failed to add video. Please try again.")
+      toast.error('Failed to add video', {
+        description: 'Please try again or contact support if the issue persists.'
+      })
     } finally {
       setIsSubmitting(false)
     }
