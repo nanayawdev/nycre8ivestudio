@@ -16,6 +16,7 @@ module.exports = {
         shine: 'shine 1.5s ease-in-out infinite',
         border: 'border 8s ease infinite',
         'spin-slow': 'spin 3s linear infinite',
+        'blink': 'blink 1s step-end infinite',
       },
       colors: {
         border: "hsl(var(--border))",
@@ -68,7 +69,11 @@ module.exports = {
         border: {
           '0%, 100%': { backgroundPosition: '0% 50%' },
           '50%': { backgroundPosition: '100% 50%' },
-        }
+        },
+        'blink': {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0' },
+        },
       },
       screens: {
         'xs': '475px',

@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import type * as React from "react"
 import { motion } from "framer-motion"
 import { cn } from "../../lib/utils"
@@ -12,6 +12,22 @@ interface HeroProps {
 
 export function Hero({ className, ...props }: HeroProps) {
   const [isResumeOpen, setIsResumeOpen] = useState(false)
+  const [text, setText] = useState("")
+  const fullText = "Digital"
+  
+  useEffect(() => {
+    let currentIndex = 0
+    const interval = setInterval(() => {
+      if (currentIndex <= fullText.length) {
+        setText(fullText.slice(0, currentIndex))
+        currentIndex++
+      } else {
+        clearInterval(interval)
+      }
+    }, 150) // Adjust speed here
+
+    return () => clearInterval(interval)
+  }, [])
 
   const scrollToPortfolio = () => {
     document.getElementById('portfolio')?.scrollIntoView({ 
@@ -90,7 +106,8 @@ export function Hero({ className, ...props }: HeroProps) {
             transition={{ delay: 0.5 }}
             className="text-6xl md:text-8xl font-normal text-white mb-6 tracking-tight"
           >
-            Crafting <span className="text-orange-500">Digital</span> <br />Dreams
+            Crafting <span className="text-orange-500">{text}</span>
+            <span className="text-orange-500 animate-blink">|</span> <br />Dreams
           </motion.h1>
 
           {/* Subtitle */}
