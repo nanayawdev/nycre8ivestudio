@@ -23,6 +23,7 @@ export function ContactForm({ isOpen, onClose }: ContactFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isServiceOpen, setIsServiceOpen] = useState(false)
   const [formData, setFormData] = useState({
+    name: "",
     email: "",
     phone: "",
     service: "",
@@ -49,6 +50,7 @@ export function ContactForm({ isOpen, onClose }: ContactFormProps) {
       })
 
       setFormData({
+        name: "",
         email: "",
         phone: "",
         service: "",
@@ -99,6 +101,22 @@ export function ContactForm({ isOpen, onClose }: ContactFormProps) {
 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                      <label htmlFor="name" className="block text-sm text-gray-400 mb-2">
+                        Name
+                      </label>
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        placeholder="Enter your name"
+                        className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:border-white/20 focus:outline-none"
+                        required
+                      />
+                    </div>
+
                     <div>
                       <label htmlFor="email" className="block text-sm text-gray-400 mb-2">
                         Email

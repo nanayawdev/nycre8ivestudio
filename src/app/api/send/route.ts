@@ -7,23 +7,21 @@ const resend = new Resend(process.env.RESEND_API_KEY)
 export async function POST(request: Request) {
   try {
     const body = await request.json()
-    const { email, phone, service, message } = body
+    const { name, email, phone, service, message } = body
 
     // Send notification to admin
     await resend.emails.send({
-      from: 'NYCre8ive Studio <me@nycre8ivestudio.com>',
+      from: 'NY Cre8ive Studio <me@nycre8ivestudio.com>',
       to: ['me@nycre8ivestudio.com'],
-      subject: `New Contact Form Submission - ${service}`,
-      react: EmailTemplate({ email, phone, service, message }),
+      ...EmailTemplate({ name, email, phone, service, message }),
       replyTo: email
     })
 
     // Send confirmation to user
     await resend.emails.send({
-      from: 'NYCre8ive Studio <me@nycre8ivestudio.com>',
+      from: 'NY Cre8ive Studio <me@nycre8ivestudio.com>',
       to: [email],
-      subject: 'Thank you for contacting NYCre8ive Studio',
-      react: ConfirmationTemplate({ email, service }),
+      ...ConfirmationTemplate({ name, email, service }),
     })
 
     return Response.json({ success: true })
