@@ -5,6 +5,7 @@ import type * as React from "react"
 import { motion } from "framer-motion"
 import { cn } from "../../lib/utils"
 import { ResumeSheet } from "./resume-sheet"
+import Link from "next/link"
 
 interface HeroProps {
   className?: string;
@@ -82,6 +83,12 @@ export function Hero({ className, ...props }: HeroProps) {
           >
             Resume
           </button>
+          <Link 
+            href="/videos"
+            className="text-gray-300 hover:text-white text-sm transition-colors"
+          >
+            Videos
+          </Link>
         </nav>
 
         {/* Hero Content */}
