@@ -11,6 +11,7 @@ export default function Error({
     <div className="min-h-screen bg-[#111111] text-white flex items-center justify-center">
       <div className="text-center">
         <h2 className="text-2xl font-medium mb-4">Something went wrong!</h2>
+        <p className="text-gray-400 mb-6">{error.message}</p>
         <button
           onClick={() => reset()}
           className="px-4 py-2 rounded-lg bg-orange-600 text-white hover:bg-orange-700 transition-colors"
