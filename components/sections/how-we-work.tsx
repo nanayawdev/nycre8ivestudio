@@ -124,26 +124,33 @@ export function HowWeWork() {
   const [canScrollLeft, setCanScrollLeft] = useState(false)
   const [canScrollRight, setCanScrollRight] = useState(true)
 
-  const handleScroll = () => {
-    if (containerRef.current) {
-      const { scrollLeft, scrollWidth, clientWidth } = containerRef.current
-      setCanScrollLeft(scrollLeft > 0)
-      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10)
-    }
+  const scrollTo = (direction: 'left' | 'right') => {
+    if (!containerRef.current) return
+
+    const container = containerRef.current
+    const scrollAmount = direction === 'left' ? -container.offsetWidth : container.offsetWidth
+    
+    container.scrollBy({
+      left: scrollAmount,
+      behavior: 'smooth'
+    })
   }
 
-  const scrollTo = (direction: 'left' | 'right') => {
-    if (containerRef.current) {
-      const scrollAmount = direction === 'left' ? -640 : 640
-      containerRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' })
-    }
+  const handleScroll = () => {
+    if (!containerRef.current) return
+
+    const container = containerRef.current
+    const maxScroll = container.scrollWidth - container.clientWidth
+
+    setCanScrollLeft(container.scrollLeft > 0)
+    setCanScrollRight(container.scrollLeft < maxScroll - 1) // -1 for rounding errors
   }
 
   useEffect(() => {
     const container = containerRef.current
     if (container) {
+      handleScroll() // Check initial scroll position
       container.addEventListener('scroll', handleScroll)
-      handleScroll() // Check initial scroll state
       return () => container.removeEventListener('scroll', handleScroll)
     }
   }, [])
@@ -163,8 +170,8 @@ export function HowWeWork() {
         </div>
       </div>
 
-      {/* Scroll Container */}
-      <div className="relative">
+      {/* Scroll Container with higher z-index */}
+      <div className="relative z-20">
         {/* Left Scroll Button */}
         {canScrollLeft && (
           <motion.button
@@ -172,7 +179,7 @@ export function HowWeWork() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => scrollTo('left')}
-            className="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+            className="fixed left-8 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full bg-black/50 backdrop-blur-sm text-white hover:bg-black/70 transition-colors shadow-lg"
           >
             <ChevronLeft className="w-6 h-6" />
           </motion.button>
@@ -185,16 +192,16 @@ export function HowWeWork() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => scrollTo('right')}
-            className="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+            className="fixed right-8 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full bg-black/50 backdrop-blur-sm text-white hover:bg-black/70 transition-colors shadow-lg"
           >
             <ChevronRight className="w-6 h-6" />
           </motion.button>
         )}
 
-        {/* Horizontal Scrolling Cards */}
+        {/* Cards Container */}
         <div 
           ref={containerRef}
-          className="flex overflow-x-auto hide-scrollbar snap-x snap-mandatory"
+          className="flex overflow-x-auto hide-scrollbar snap-x snap-mandatory relative z-10"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           onScroll={handleScroll}
         >
