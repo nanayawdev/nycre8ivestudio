@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Image from "next/image"
+import { Play } from "lucide-react"
 
 interface VideoCardProps {
   video: {
@@ -44,8 +45,8 @@ export function VideoCard({ video }: VideoCardProps) {
               onClick={() => setIsPlaying(true)}
               className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"
             >
-              <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                <div className="w-0 h-0 border-t-8 border-t-transparent border-l-12 border-l-white border-b-8 border-b-transparent ml-1" />
+              <div className="w-16 h-16 rounded-full bg-orange-600 flex items-center justify-center shadow-lg">
+                <Play className="w-8 h-8 text-white fill-white" />
               </div>
             </button>
           </>

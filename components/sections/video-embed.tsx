@@ -133,19 +133,18 @@ function getEmbedUrl(url: string): string {
       const videoId = urlObj.hostname.includes('youtu.be') 
         ? urlObj.pathname.slice(1)
         : urlObj.searchParams.get('v')
-      return `https://www.youtube.com/embed/${videoId}`
+      return `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=0`
     }
     
     // Facebook
     if (urlObj.hostname.includes('facebook.com')) {
-      // Just use the full URL for Facebook embeds
-      return `https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(url)}&show_text=false&t=0`
+      return `https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(url)}&show_text=false&t=0&autoplay=true`
     }
     
     // TikTok
     if (urlObj.hostname.includes('tiktok.com')) {
       const videoId = urlObj.pathname.split('/').pop()
-      return `https://www.tiktok.com/embed/${videoId}`
+      return `https://www.tiktok.com/embed/${videoId}?autoplay=1`
     }
 
     // Instagram
