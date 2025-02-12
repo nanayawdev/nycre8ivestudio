@@ -74,6 +74,16 @@ export function Features() {
   return (
     <section className="relative bg-[#111111] px-4 py-32">
       <div className="max-w-7xl mx-auto">
+        <div className="mb-12">
+          <div className="inline-block px-4 py-1.5 rounded-full text-sm bg-[#222] border border-[#333]">
+            Services
+          </div>
+          <h2 className="text-4xl md:text-6xl lg:text-7xl tracking-tight mt-4">
+            <span className="text-gray-500">What I</span>{" "}
+            <span className="text-white">Offer</span>
+          </h2>
+        </div>
+
         <div className="space-y-0">
           {features.map((feature, index) => (
             <FeatureCard key={index} feature={feature} />
