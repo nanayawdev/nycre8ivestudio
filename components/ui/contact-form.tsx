@@ -68,7 +68,7 @@ export function ContactForm({ isOpen, onClose }: ContactFormProps) {
               <div className="space-y-6 sm:space-y-8">
                 <div>
                   <h2 className="text-2xl xs:text-3xl sm:text-4xl font-medium text-white mb-2">Get in Touch</h2>
-                  <p className="text-sm sm:text-base text-gray-400">Let's discuss your project and make it happen.</p>
+                  <p className="text-sm sm:text-base text-gray-400">Let&apos;s discuss your project and make it happen.</p>
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
