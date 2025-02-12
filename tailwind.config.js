@@ -15,6 +15,7 @@ module.exports = {
         "glow-2": "glow2 12s infinite ease-in-out",
         shine: 'shine 1.5s ease-in-out infinite',
         border: 'border 8s ease infinite',
+        'spin-slow': 'spin 3s linear infinite',
       },
       colors: {
         border: "hsl(var(--border))",

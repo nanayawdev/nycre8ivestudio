@@ -1,6 +1,14 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { 
+  LayoutTemplate, // Next.js
+  Atom, // React
+  Zap, // Vite
+  Server, // Express
+  Terminal, // Node.js
+  Database // Supabase
+} from "lucide-react"
 
 interface Technology {
   category: string
@@ -13,13 +21,10 @@ const technologies: Technology[] = [
     category: "Framework",
     name: "Next.js",
     icon: (
-      <div className="relative w-32 h-32">
-        <div className="absolute inset-0 bg-white/5 rounded-xl" />
+      <div className="relative w-32 h-32 group">
+        <div className="absolute inset-0 bg-white/5 rounded-xl group-hover:bg-white/10 transition-all duration-300" />
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-16 h-16">
-            <div className="w-full h-3 bg-white/20 rounded-full mb-3" />
-            <div className="w-3/4 h-3 bg-white/20 rounded-full" />
-          </div>
+          <LayoutTemplate className="w-16 h-16 text-blue-500/40 group-hover:scale-110 group-hover:rotate-[360deg] transition-all duration-700" />
         </div>
       </div>
     )
@@ -28,10 +33,10 @@ const technologies: Technology[] = [
     category: "Library",
     name: "React.js",
     icon: (
-      <div className="relative w-32 h-32">
-        <div className="absolute inset-0 bg-white/5 rounded-xl" />
+      <div className="relative w-32 h-32 group">
+        <div className="absolute inset-0 bg-white/5 rounded-xl group-hover:bg-white/10 transition-all duration-300" />
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-16 h-16 border-4 border-white/20 rounded-full" />
+          <Atom className="w-16 h-16 text-cyan-500/40 animate-spin-slow group-hover:text-cyan-400/60" />
         </div>
       </div>
     )
@@ -40,10 +45,10 @@ const technologies: Technology[] = [
     category: "Build Tool",
     name: "Vite",
     icon: (
-      <div className="relative w-32 h-32">
-        <div className="absolute inset-0 bg-white/5 rounded-xl" />
+      <div className="relative w-32 h-32 group">
+        <div className="absolute inset-0 bg-white/5 rounded-xl group-hover:bg-white/10 transition-all duration-300" />
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-16 h-16 bg-white/20 transform rotate-45" />
+          <Zap className="w-16 h-16 text-purple-500/40 group-hover:scale-125 transition-all duration-300" />
         </div>
       </div>
     )
@@ -52,15 +57,10 @@ const technologies: Technology[] = [
     category: "Backend",
     name: "Express.js",
     icon: (
-      <div className="relative w-32 h-32">
-        <div className="absolute inset-0 bg-white/5 rounded-xl" />
+      <div className="relative w-32 h-32 group">
+        <div className="absolute inset-0 bg-white/5 rounded-xl group-hover:bg-white/10 transition-all duration-300" />
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="grid grid-cols-2 gap-1">
-            <div className="w-3 h-3 bg-white/20 rounded-sm" />
-            <div className="w-3 h-3 bg-white/20 rounded-full" />
-            <div className="w-3 h-3 bg-white/20 rounded-lg transform rotate-45" />
-            <div className="w-3 h-3 bg-white/20 rounded-sm" />
-          </div>
+          <Server className="w-16 h-16 text-green-500/40 group-hover:translate-y-[-4px] transition-all duration-300" />
         </div>
       </div>
     )
@@ -69,13 +69,10 @@ const technologies: Technology[] = [
     category: "Runtime",
     name: "Node.js",
     icon: (
-      <div className="relative w-32 h-32">
-        <div className="absolute inset-0 bg-white/5 rounded-xl" />
+      <div className="relative w-32 h-32 group">
+        <div className="absolute inset-0 bg-white/5 rounded-xl group-hover:bg-white/10 transition-all duration-300" />
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-16 h-16">
-            <div className="w-full h-3 bg-white/20 rounded-full mb-3" />
-            <div className="w-2/3 h-3 bg-white/20 rounded-full" />
-          </div>
+          <Terminal className="w-16 h-16 text-emerald-500/40 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300" />
         </div>
       </div>
     )
@@ -84,10 +81,10 @@ const technologies: Technology[] = [
     category: "Database",
     name: "Supabase",
     icon: (
-      <div className="relative w-32 h-32">
-        <div className="absolute inset-0 bg-white/5 rounded-xl" />
+      <div className="relative w-32 h-32 group">
+        <div className="absolute inset-0 bg-white/5 rounded-xl group-hover:bg-white/10 transition-all duration-300" />
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-16 h-16 border-4 border-white/20 rounded-sm" />
+          <Database className="w-16 h-16 text-orange-500/40 group-hover:scale-110 group-hover:-translate-y-1 transition-all duration-300" />
         </div>
       </div>
     )
@@ -98,14 +95,15 @@ export function TechStack() {
   return (
     <section className="relative bg-[#111111] px-4 py-32">
       <div className="max-w-7xl mx-auto">
-        <motion.h2 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-8xl font-display mb-24"
-        >
-          Tech Stack
-        </motion.h2>
+        <div className="mb-12">
+          <div className="inline-block px-4 py-1.5 rounded-full text-sm bg-[#222] border border-[#333]">
+            Technologies
+          </div>
+          <h2 className="text-4xl md:text-6xl lg:text-7xl tracking-tight mt-4">
+            <span className="text-gray-500">Tech</span>{" "}
+            <span className="text-white">Stack</span>
+          </h2>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
           {technologies.map((tech, index) => (
