@@ -1,7 +1,6 @@
 "use client"
 
 import { useRef, useEffect } from "react"
-import { motion } from "framer-motion"
 import { Clock } from "lucide-react"
 import type React from "react"
 import gsap from "gsap"
