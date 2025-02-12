@@ -11,7 +11,9 @@ export default function Home() {
   return (
     <main className="bg-[#111111] text-white">
       <Hero />
-      <Highlights />
+      <div className="-mt-24 sm:-mt-32">
+        <Highlights />
+      </div>
       <WhatWeDo />
       <HowWeWork />
       <TechStack />
