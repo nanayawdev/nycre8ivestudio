@@ -89,6 +89,14 @@ export function Footer() {
               >
                 Instagram
               </Link>
+              <Link 
+                href="https://wa.me/233599326736"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3 rounded-full border border-white/10 text-gray-400 hover:text-white hover:border-white/20 transition-colors"
+              >
+                WhatsApp
+              </Link>
             </div>
           </div>
         </div>

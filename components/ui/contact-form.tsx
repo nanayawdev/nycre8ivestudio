@@ -1,7 +1,7 @@
 "use client"
 
 import { motion, AnimatePresence } from "framer-motion"
-import { X, ChevronDown, Loader2 } from "lucide-react"
+import { X, ChevronDown } from "lucide-react"
 import { useState } from "react"
 import { toast } from "sonner"
 
@@ -45,7 +45,7 @@ export function ContactForm({ isOpen, onClose }: ContactFormProps) {
       if (!response.ok) throw new Error('Failed to send message')
 
       toast.success('Message sent successfully!', {
-        description: 'Check your email for confirmation. I\'ll get back to you soon.',
+        description: 'Check your email for confirmation. I&apos;ll get back to you soon.',
       })
 
       setFormData({
