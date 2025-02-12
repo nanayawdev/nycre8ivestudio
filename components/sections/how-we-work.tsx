@@ -82,37 +82,60 @@ const processSteps: ProcessStep[] = [
 
 function ProcessCard({ step }: { step: ProcessStep }) {
   return (
-    <div className="panel bg-[#161616] rounded-3xl overflow-hidden group hover:bg-[#1a1a1a] transition-colors min-h-screen">
-      <div className="p-8 space-y-6 relative z-10 max-w-3xl mx-auto">
-        {/* Project Number */}
-        <div className="text-gray-500 text-xl">{step.number}</div>
+    <div className="panel bg-[#161616] overflow-hidden group hover:bg-[#1a1a1a] transition-colors min-h-[100dvh] w-full">
+      <div className="h-full flex items-center justify-center px-4 md:px-8">
+        <div className="max-w-6xl w-full mx-auto grid md:grid-cols-[1fr,auto] gap-12 items-center">
+          {/* Left Content */}
+          <div className="space-y-8">
+            <div>
+              <div className="text-3xl text-gray-500 mb-4">{step.number}</div>
+              <h3 className="text-5xl md:text-7xl lg:text-8xl font-light text-white whitespace-pre-line leading-tight">
+                {step.title}
+              </h3>
+            </div>
+            
+            <p className="text-lg md:text-xl text-gray-400 leading-relaxed">
+              {step.description}
+            </p>
 
-        {/* Title */}
-        <h3 className="text-3xl md:text-4xl text-white whitespace-pre-line">
-          {step.title}
-        </h3>
+            <a 
+              href={step.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center text-sm text-gray-400 bg-white/5 px-6 py-3 rounded-full hover:bg-white/10 transition-colors"
+            >
+              <Clock className="w-5 h-5 mr-2" />
+              View Project →
+            </a>
+          </div>
 
-        {/* Description */}
-        <p className="text-gray-400">
-          {step.description}
-        </p>
+          {/* Right Content */}
+          <div className="space-y-12">
+            {/* Icon */}
+            <div className="relative">
+              <div className="aspect-square w-full max-w-[300px]">
+                {step.icon}
+              </div>
+            </div>
 
-        {/* Icon */}
-        <div className="flex-shrink-0">
-          {step.icon}
-        </div>
-
-        {/* Link */}
-        <div className="pt-4 border-t border-white/10">
-          <a 
-            href={step.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center text-sm text-gray-400 bg-white/5 px-4 py-2 rounded-full hover:bg-white/10 transition-colors"
-          >
-            <Clock className="w-4 h-4 mr-2" />
-            View Project →
-          </a>
+            {/* Process Steps */}
+            <div className="space-y-6 border-l border-white/10 pl-6">
+              <div className="space-y-2">
+                <div className="text-sm text-gray-500">Task</div>
+                <div className="text-white">Design & Development</div>
+              </div>
+              
+              <div className="space-y-2">
+                <div className="text-sm text-gray-500">Strategy</div>
+                <div className="text-white">User-Centered Design</div>
+              </div>
+              
+              <div className="space-y-2">
+                <div className="text-sm text-gray-500">Approach</div>
+                <div className="text-white">Agile Methodology</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
