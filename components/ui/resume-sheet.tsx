@@ -1,8 +1,10 @@
 "use client"
 
 import { motion, AnimatePresence } from "framer-motion"
-import { X, Github, Linkedin, Twitter, Mail } from "lucide-react"
+import { X, Github, Linkedin, Twitter, Mail, Download } from "lucide-react"
 import { CTAButton } from "./cta-button"
+import Image from "next/image"
+import { useState } from "react"
 
 interface ResumeSheetProps {
   isOpen: boolean
@@ -10,6 +12,28 @@ interface ResumeSheetProps {
 }
 
 export function ResumeSheet({ isOpen, onClose }: ResumeSheetProps) {
+  const [isDownloading, setIsDownloading] = useState(false)
+
+  const handleDownload = async () => {
+    setIsDownloading(true)
+    try {
+      const response = await fetch('/resume.pdf')
+      const blob = await response.blob()
+      const url = window.URL.createObjectURL(blob)
+      const a = document.createElement('a')
+      a.href = url
+      a.download = "NanaYawIsrael-Resume.pdf"
+      document.body.appendChild(a)
+      a.click()
+      window.URL.revokeObjectURL(url)
+      document.body.removeChild(a)
+    } catch (error) {
+      console.error('Download failed:', error)
+    } finally {
+      setIsDownloading(false)
+    }
+  }
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -47,8 +71,20 @@ export function ResumeSheet({ isOpen, onClose }: ResumeSheetProps) {
               <div className="space-y-8 sm:space-y-12">
                 {/* About */}
                 <section className="space-y-4 sm:space-y-6">
+                  {/* Profile Image */}
+                  <div className="relative w-24 h-24 sm:w-32 sm:h-32 rounded-2xl overflow-hidden">
+                    <Image
+                      src="/ny.jpg"
+                      alt="Nana Yaw Israel"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 640px) 96px, 128px"
+                      priority
+                    />
+                  </div>
+
                   <div className="space-y-3 sm:space-y-4">
-                    <h3 className="text-xl sm:text-2xl text-white">Nanayaw Israel</h3>
+                    <h3 className="text-xl sm:text-2xl text-white">Nana Yaw Israel</h3>
                     <p className="text-sm sm:text-base text-gray-400 leading-relaxed">
                       Full-stack developer with expertise in modern web technologies and a passion for creating exceptional digital experiences.
                     </p>
@@ -150,10 +186,21 @@ export function ResumeSheet({ isOpen, onClose }: ResumeSheetProps) {
                 {/* Download Resume Button */}
                 <div className="pt-6">
                   <button
-                    onClick={() => window.open('/resume.pdf', '_blank')}
-                    className="w-full px-4 py-3 rounded-xl border border-white/10 text-gray-300 hover:text-white hover:bg-white/5 transition-colors"
+                    onClick={handleDownload}
+                    disabled={isDownloading}
+                    className="w-full px-4 py-3 rounded-xl border border-white/10 text-gray-300 hover:text-white hover:bg-white/5 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
                   >
-                    Download Resume
+                    {isDownloading ? (
+                      <>
+                        <span className="w-4 h-4 border-2 border-white/20 border-t-white rounded-full animate-spin" />
+                        Downloading...
+                      </>
+                    ) : (
+                      <>
+                        <Download className="w-4 h-4" />
+                        Download Resume
+                      </>
+                    )}
                   </button>
                 </div>
               </div>
