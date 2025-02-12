@@ -2,12 +2,23 @@ import { Resend } from 'resend'
 import { EmailTemplate } from '../../../../components/email/email-template'
 import { ConfirmationTemplate } from '../../../../components/email/confirmation-template'
 
+if (!process.env.RESEND_API_KEY) {
+  throw new Error('Missing RESEND_API_KEY environment variable')
+}
+
 const resend = new Resend(process.env.RESEND_API_KEY)
 
 export async function POST(request: Request) {
   try {
     const body = await request.json()
     const { name, email, phone, service, message } = body
+
+    if (!process.env.RESEND_API_KEY) {
+      return Response.json(
+        { error: 'Missing Resend API key' },
+        { status: 500 }
+      )
+    }
 
     // Send notification to admin
     await resend.emails.send({
