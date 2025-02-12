@@ -90,7 +90,7 @@ export function Hero({ className, ...props }: HeroProps) {
             transition={{ delay: 0.5 }}
             className="text-6xl md:text-8xl font-normal text-white mb-6 tracking-tight"
           >
-            Crafting Digital <br />Dreams
+            Crafting <span className="text-orange-500">Digital</span> <br />Dreams
           </motion.h1>
 
           {/* Subtitle */}
