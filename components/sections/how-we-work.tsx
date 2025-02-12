@@ -170,8 +170,8 @@ export function HowWeWork() {
         </div>
       </div>
 
-      {/* Scroll Container with higher z-index */}
-      <div className="relative z-20">
+      {/* Scroll Container */}
+      <div className="relative">
         {/* Left Scroll Button */}
         {canScrollLeft && (
           <motion.button
@@ -179,7 +179,7 @@ export function HowWeWork() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => scrollTo('left')}
-            className="fixed left-8 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full bg-black/50 backdrop-blur-sm text-white hover:bg-black/70 transition-colors shadow-lg"
+            className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full bg-black/50 backdrop-blur-sm text-white hover:bg-black/70 transition-colors shadow-lg"
           >
             <ChevronLeft className="w-6 h-6" />
           </motion.button>
@@ -192,7 +192,7 @@ export function HowWeWork() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => scrollTo('right')}
-            className="fixed right-8 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full bg-black/50 backdrop-blur-sm text-white hover:bg-black/70 transition-colors shadow-lg"
+            className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full bg-black/50 backdrop-blur-sm text-white hover:bg-black/70 transition-colors shadow-lg"
           >
             <ChevronRight className="w-6 h-6" />
           </motion.button>
@@ -201,7 +201,7 @@ export function HowWeWork() {
         {/* Cards Container */}
         <div 
           ref={containerRef}
-          className="flex overflow-x-auto hide-scrollbar snap-x snap-mandatory relative z-10"
+          className="flex overflow-x-auto hide-scrollbar snap-x snap-mandatory"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           onScroll={handleScroll}
         >
