@@ -3,10 +3,12 @@
 import { useState } from "react"
 import { createClient } from "@supabase/supabase-js"
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-)
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+
+const supabase = supabaseUrl && supabaseAnonKey 
+  ? createClient(supabaseUrl, supabaseAnonKey)
+  : null
 
 export function VideoEmbed() {
   const [url, setUrl] = useState("")
@@ -16,6 +18,12 @@ export function VideoEmbed() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    if (!supabase) {
+      console.error('Supabase client not initialized')
+      alert('Configuration error. Please try again later.')
+      return
+    }
+
     setIsSubmitting(true)
 
     try {
