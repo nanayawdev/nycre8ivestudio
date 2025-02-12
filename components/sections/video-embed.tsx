@@ -120,10 +120,7 @@ function getEmbedUrl(url: string): string {
     
     // Facebook
     if (urlObj.hostname.includes('facebook.com')) {
-      // Handle both video and post URLs
-      const videoId = url.includes('/videos/') 
-        ? url.split('/videos/')[1].split('/')[0]
-        : url.split('/posts/')[1].split('/')[0]
+      // Just use the full URL for Facebook embeds
       return `https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(url)}&show_text=false&t=0`
     }
     

@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 
 interface VideoCardProps {
   video: {
@@ -29,11 +30,15 @@ export function VideoCard({ video }: VideoCardProps) {
           />
         ) : (
           <>
-            <img 
-              src={video.thumbnail_url} 
-              alt={video.title}
-              className="w-full h-full object-cover"
-            />
+            <div className="relative w-full h-full">
+              <Image 
+                src={video.thumbnail_url} 
+                alt={video.title}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              />
+            </div>
             <button
               onClick={() => setIsPlaying(true)}
               className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"
