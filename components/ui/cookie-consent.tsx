@@ -35,11 +35,11 @@ export function CookieConsent() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 20, opacity: 0 }}
           transition={{ type: "spring", stiffness: 100, damping: 20 }}
-          className="fixed bottom-4 inset-x-0 z-50 mx-auto max-w-sm px-4"
+          className="fixed bottom-4 sm:bottom-6 inset-x-0 z-50 mx-auto max-w-xs sm:max-w-sm px-4"
         >
-          <div className="relative bg-[#161616] rounded-lg p-4 shadow-xl border border-white/10">
-            <div className="flex items-start gap-3">
-              <p className="text-xs text-gray-400 flex-1">
+          <div className="relative bg-[#161616] rounded-lg sm:rounded-xl p-3 sm:p-4 shadow-xl border border-white/10">
+            <div className="flex items-start gap-2 sm:gap-3">
+              <p className="text-xs sm:text-sm text-gray-400 flex-1">
                 We use cookies to enhance your experience. 
                 <button onClick={handleAccept} className="text-white hover:underline ml-1">
                   Accept
@@ -53,7 +53,7 @@ export function CookieConsent() {
                 onClick={handleDecline}
                 className="text-gray-500 hover:text-white p-1"
               >
-                <X className="w-3 h-3" />
+                <X className="w-3 h-3 sm:w-4 sm:h-4" />
               </button>
             </div>
           </div>

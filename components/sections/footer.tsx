@@ -6,13 +6,13 @@ import Link from "next/link"
 
 export function Footer() {
   return (
-    <footer className="bg-[#111111] px-4 py-32">
+    <footer className="bg-[#111111] px-4 sm:px-6 lg:px-8 py-24 sm:py-32">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-start gap-16">
+        <div className="flex flex-col md:flex-row justify-between items-start gap-12 sm:gap-16">
           {/* Left side */}
-          <div className="space-y-8">
-            <div className="flex items-start gap-6">
-              <div className="w-16 h-16 rounded-full overflow-hidden flex-shrink-0">
+          <div className="space-y-6 sm:space-y-8">
+            <div className="flex items-start gap-4 sm:gap-6">
+              <div className="w-12 sm:w-16 h-12 sm:h-16 rounded-full overflow-hidden flex-shrink-0">
                 <Image
                   src="/ny.jpg"
                   alt="Profile"
@@ -24,7 +24,7 @@ export function Footer() {
               <motion.h2 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                className="text-7xl md:text-8xl font-display leading-none"
+                className="text-5xl xs:text-6xl sm:text-7xl md:text-8xl font-display leading-none"
               >
                 LET&apos;S<br />CONNECT!
               </motion.h2>
@@ -37,15 +37,15 @@ export function Footer() {
           </div>
 
           {/* Right side */}
-          <div className="space-y-12">
-            {/* Contact info */}
-            <div className="space-y-4">
-              <div className="text-sm text-gray-500">
+          <div className="space-y-8 sm:space-y-12">
+            {/* Contact info with responsive text sizes */}
+            <div className="space-y-3 sm:space-y-4">
+              <div className="text-xs sm:text-sm text-gray-500">
                 Email Address
               </div>
               <Link 
                 href="mailto:nanayawisrael@gmail.com"
-                className="text-2xl md:text-3xl text-white hover:text-gray-300 transition-colors"
+                className="text-xl xs:text-2xl sm:text-3xl text-white hover:text-gray-300 transition-colors"
               >
                 nanayawisrael@gmail.com
               </Link>
@@ -64,7 +64,7 @@ export function Footer() {
             </div>
 
             {/* Social links */}
-            <div className="flex gap-4">
+            <div className="flex flex-wrap gap-3 sm:gap-4">
               <Link 
                 href="https://linkedin.com/in/nanayawisrael"
                 target="_blank"
@@ -94,7 +94,7 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="flex justify-between items-center mt-32 pt-8 border-t border-white/10">
+        <div className="flex flex-col sm:flex-row justify-between items-center mt-24 sm:mt-32 pt-6 sm:pt-8 border-t border-white/10">
           <div className="text-sm text-gray-500">
             ©2025- All Rights Reserved
           </div>

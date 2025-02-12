@@ -93,36 +93,36 @@ const technologies: Technology[] = [
 
 export function TechStack() {
   return (
-    <section className="relative bg-[#111111] px-4 py-32">
+    <section className="relative bg-[#111111] px-4 py-24 sm:py-32">
       <div className="max-w-7xl mx-auto">
         <div className="mb-12">
-          <div className="inline-block px-4 py-1.5 rounded-full text-sm bg-[#222] border border-[#333]">
+          <div className="inline-block px-4 py-1.5 rounded-full text-xs sm:text-sm bg-[#222] border border-[#333]">
             Technologies
           </div>
-          <h2 className="text-4xl md:text-6xl lg:text-7xl tracking-tight mt-4">
+          <h2 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight mt-4">
             <span className="text-gray-500">Tech</span>{" "}
             <span className="text-white">Stack</span>
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 lg:gap-16">
           {technologies.map((tech, index) => (
             <motion.div
               key={tech.name}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group border-t border-white/10 pt-12"
+              className="group border-t border-white/10 pt-8 sm:pt-12"
             >
-              <div className="flex gap-12">
+              <div className="flex gap-8 sm:gap-12">
                 <div className="flex-shrink-0">
                   {tech.icon}
                 </div>
                 <div className="flex-1">
-                  <div className="text-base text-gray-500 mb-4">
+                  <div className="text-sm sm:text-base text-gray-500 mb-3 sm:mb-4">
                     {tech.category}
                   </div>
-                  <h3 className="text-4xl md:text-6xl text-white group-hover:text-gray-300 transition-colors">
+                  <h3 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl text-white group-hover:text-gray-300 transition-colors">
                     {tech.name}
                   </h3>
                 </div>

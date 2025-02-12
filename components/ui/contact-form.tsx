@@ -54,7 +54,7 @@ export function ContactForm({ isOpen, onClose }: ContactFormProps) {
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
-              className="relative w-full max-w-2xl bg-[#161616] rounded-3xl p-8 md:p-12"
+              className="relative w-full max-w-2xl bg-[#161616] rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12"
             >
               {/* Close button */}
               <button
@@ -65,43 +65,45 @@ export function ContactForm({ isOpen, onClose }: ContactFormProps) {
               </button>
 
               {/* Form content */}
-              <div className="space-y-8">
+              <div className="space-y-6 sm:space-y-8">
                 <div>
-                  <h2 className="text-3xl md:text-4xl font-medium text-white mb-2">Get in Touch</h2>
-                  <p className="text-gray-400">Let&apos;s discuss your project and make it happen.</p>
+                  <h2 className="text-2xl xs:text-3xl sm:text-4xl font-medium text-white mb-2">Get in Touch</h2>
+                  <p className="text-sm sm:text-base text-gray-400">Let's discuss your project and make it happen.</p>
                 </div>
 
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                   {/* Email field */}
-                  <div>
-                    <label htmlFor="email" className="block text-sm text-gray-400 mb-2">
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:border-white/20 focus:outline-none focus:ring-0 transition-colors"
-                      placeholder="Enter your email"
-                      required
-                    />
-                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                    <div>
+                      <label htmlFor="email" className="block text-sm text-gray-400 mb-2">
+                        Email
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:border-white/20 focus:outline-none focus:ring-0 transition-colors"
+                        placeholder="Enter your email"
+                        required
+                      />
+                    </div>
 
-                  {/* Phone field */}
-                  <div>
-                    <label htmlFor="phone" className="block text-sm text-gray-400 mb-2">
-                      Phone Number
-                    </label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      value={phone}
-                      onChange={(e) => setPhone(e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:border-white/20 focus:outline-none focus:ring-0 transition-colors"
-                      placeholder="Enter your phone number"
-                      required
-                    />
+                    {/* Phone field */}
+                    <div>
+                      <label htmlFor="phone" className="block text-sm text-gray-400 mb-2">
+                        Phone Number
+                      </label>
+                      <input
+                        type="tel"
+                        id="phone"
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
+                        className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:border-white/20 focus:outline-none focus:ring-0 transition-colors"
+                        placeholder="Enter your phone number"
+                        required
+                      />
+                    </div>
                   </div>
 
                   {/* Custom Service Dropdown */}

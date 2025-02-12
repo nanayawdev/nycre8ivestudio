@@ -86,34 +86,28 @@ function ProcessCard({ step }: { step: ProcessStep }) {
       transition={{ duration: 0.5 }}
       className="shrink-0 w-[calc(100vw-2rem)] md:w-[640px] snap-center px-4"
     >
-      <div className="bg-[#161616] rounded-3xl overflow-hidden group hover:bg-[#1a1a1a] transition-colors">
-        {/* Content */}
-        <div className="p-8 space-y-6 relative z-10">
-          {/* Project Number */}
-          <div className="text-gray-500 text-xl">{step.number}</div>
+      <div className="bg-[#161616] rounded-2xl sm:rounded-3xl overflow-hidden group hover:bg-[#1a1a1a] transition-colors">
+        <div className="p-6 sm:p-8 space-y-4 sm:space-y-6 relative z-10">
+          <div className="text-xl sm:text-2xl text-gray-500">{step.number}</div>
 
-          {/* Title */}
-          <h3 className="text-3xl md:text-4xl text-white whitespace-pre-line">
+          <h3 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl text-white whitespace-pre-line">
             {step.title}
           </h3>
 
-          {/* Description */}
-          <p className="text-gray-400">
+          <p className="text-sm sm:text-base text-gray-400">
             {step.description}
           </p>
 
-          {/* Icon */}
           <div className="flex-shrink-0">
             {step.icon}
           </div>
 
-          {/* Link */}
           <div className="pt-4 border-t border-white/10">
             <a 
               href={step.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center text-sm text-gray-400 bg-white/5 px-4 py-2 rounded-full hover:bg-white/10 transition-colors"
+              className="inline-flex items-center text-xs sm:text-sm text-gray-400 bg-white/5 px-3 sm:px-4 py-2 rounded-full hover:bg-white/10 transition-colors"
             >
               <Clock className="w-4 h-4 mr-2" />
               View Project →

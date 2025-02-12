@@ -29,33 +29,33 @@ export function ResumeSheet({ isOpen, onClose }: ResumeSheetProps) {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 20, stiffness: 100 }}
-            className="fixed right-0 top-0 z-50 h-screen w-full max-w-2xl bg-[#161616] shadow-xl"
+            className="fixed right-0 top-0 z-50 h-screen w-full xs:w-[90%] sm:w-[440px] md:w-[500px] lg:w-[600px] bg-[#161616] shadow-xl"
           >
             {/* Header */}
-            <div className="flex items-center justify-between border-b border-white/10 p-6">
-              <h2 className="text-xl font-medium text-white">Resume</h2>
+            <div className="flex items-center justify-between border-b border-white/10 p-4 sm:p-6">
+              <h2 className="text-lg sm:text-xl font-medium text-white">Resume</h2>
               <button
                 onClick={onClose}
-                className="rounded-full p-2 text-gray-400 hover:text-white transition-colors"
+                className="rounded-full p-1.5 sm:p-2 text-gray-400 hover:text-white transition-colors"
               >
-                <X className="h-5 w-5" />
+                <X className="h-4 w-4 sm:h-5 sm:w-5" />
               </button>
             </div>
 
             {/* Content */}
-            <div className="h-[calc(100vh-5rem)] overflow-y-auto p-6">
-              <div className="space-y-12">
+            <div className="h-[calc(100vh-5rem)] overflow-y-auto p-4 sm:p-6">
+              <div className="space-y-8 sm:space-y-12">
                 {/* About */}
-                <section className="space-y-6">
-                  <div className="space-y-4">
-                    <h3 className="text-2xl text-white">Nanayaw Israel</h3>
-                    <p className="text-gray-400 leading-relaxed">
+                <section className="space-y-4 sm:space-y-6">
+                  <div className="space-y-3 sm:space-y-4">
+                    <h3 className="text-xl sm:text-2xl text-white">Nanayaw Israel</h3>
+                    <p className="text-sm sm:text-base text-gray-400 leading-relaxed">
                       Full-stack developer with expertise in modern web technologies and a passion for creating exceptional digital experiences.
                     </p>
                   </div>
 
                   {/* Social Media Links */}
-                  <div className="flex gap-4">
+                  <div className="flex gap-3 sm:gap-4">
                     <a
                       href="https://github.com/nanayawisrael"
                       target="_blank"

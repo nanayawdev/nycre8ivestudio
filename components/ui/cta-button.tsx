@@ -17,7 +17,7 @@ export function CTAButton({ text, className }: CTAButtonProps) {
     <>
       <motion.button
         onClick={() => setIsFormOpen(true)}
-        className={`group relative inline-flex items-center gap-6 rounded-full bg-orange-600 px-12 py-8 text-xl md:text-2xl font-medium text-white hover:bg-orange-700 transition-all ${className}`}
+        className="group relative inline-flex items-center gap-4 sm:gap-6 rounded-full bg-orange-600 px-8 sm:px-12 py-6 sm:py-8 text-lg sm:text-xl md:text-2xl font-medium text-white hover:bg-orange-700 transition-all"
         whileHover={{ 
           scale: 1.05,
           transition: { duration: 0.2 }
