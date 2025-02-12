@@ -55,19 +55,17 @@ export function Hero({ className, ...props }: HeroProps) {
 
       {/* Content */}
       <div className="relative z-10">
-        {/* Navigation */}
-        <nav className="flex justify-between items-center px-8 py-8 md:px-12">
+        {/* Navigation - Horizontal centered positioning */}
+        <nav className="flex items-center justify-center gap-12 px-8 py-8 md:px-12">
           <div className="text-white font-bold text-xl tracking-tight">
             NY<span className="font-light">CRE8IVE</span>
           </div>
-          <div className="flex items-center gap-6 md:gap-10">
-            <button 
-              onClick={() => setIsResumeOpen(true)}
-              className="text-gray-300 hover:text-white text-sm transition-colors"
-            >
-              Resume
-            </button>
-          </div>
+          <button 
+            onClick={() => setIsResumeOpen(true)}
+            className="text-gray-300 hover:text-white text-sm transition-colors"
+          >
+            Resume
+          </button>
         </nav>
 
         {/* Hero Content */}
