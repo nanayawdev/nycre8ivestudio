@@ -43,9 +43,9 @@ export function VideoCard({ video }: VideoCardProps) {
             </div>
             <button
               onClick={() => setIsPlaying(true)}
-              className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"
+              className="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/50 transition-colors"
             >
-              <div className="w-16 h-16 rounded-full bg-orange-600 flex items-center justify-center shadow-lg">
+              <div className="w-16 h-16 rounded-full bg-orange-600/90 flex items-center justify-center shadow-lg group-hover:bg-orange-600 transition-colors">
                 <Play className="w-8 h-8 text-white fill-white" />
               </div>
             </button>
