@@ -1,4 +1,4 @@
-import { Hero } from "../../components/ui/hero"
+import { HeroSection } from "../../components/sections/hero-section"
 import { WhatWeDo } from "../../components/sections/what-we-do"
 import { HowWeWork } from "../../components/sections/how-we-work"
 import { Highlights } from "../../components/sections/highlights"
@@ -10,7 +10,7 @@ import { Footer } from "../../components/sections/footer"
 export default function Home() {
   return (
     <main className="bg-[#111111] text-white">
-      <Hero />
+      <HeroSection />
       <div className="-mt-24 sm:-mt-32">
         <Highlights />
       </div>
