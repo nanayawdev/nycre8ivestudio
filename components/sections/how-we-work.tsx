@@ -1,8 +1,7 @@
 "use client"
 
-import { useRef, useState, useEffect } from "react"
 import { motion } from "framer-motion"
-import { ArrowUpRight, ExternalLink } from "lucide-react"
+import { ExternalLink } from "lucide-react"
 import Image from "next/image"
 
 interface Project {
