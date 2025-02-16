@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { ArrowUpRight, Github, Linkedin, Twitter } from "lucide-react"
+import { ArrowUpRight, Github } from "lucide-react"
 import Link from "next/link"
 import { useState } from "react"
 import { ResumeSheet } from "../ui/resume-sheet"
