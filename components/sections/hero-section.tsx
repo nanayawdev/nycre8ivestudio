@@ -31,14 +31,26 @@ export function HeroSection() {
 
       {/* Content */}
       <div className="relative">
-        {/* Navigation */}
-        <nav className="flex items-center justify-between px-6 sm:px-12 py-8">
+        {/* Navigation - Updated */}
+        <nav className="flex items-center justify-center gap-12 px-6 sm:px-12 py-8">
           <Link 
             href="/"
             className="text-white font-bold text-xl tracking-tight"
           >
             NY<span className="font-light">CRE8IVE</span>
           </Link>
+          <button 
+            onClick={() => window.location.href = '/'}
+            className="text-gray-400 hover:text-white text-sm transition-colors"
+          >
+            Home
+          </button>
+          <button 
+            onClick={() => window.location.href = '#portfolio'}
+            className="text-gray-400 hover:text-white text-sm transition-colors"
+          >
+            Portfolio
+          </button>
           <div className="flex items-center gap-6">
             {[
               { icon: Github, href: "https://github.com/nanayawisrael" },
