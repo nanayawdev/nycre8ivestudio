@@ -5,9 +5,11 @@ import { ArrowUpRight, Github, Linkedin, Twitter } from "lucide-react"
 import Link from "next/link"
 import { useState } from "react"
 import { ResumeSheet } from "../ui/resume-sheet"
+import { ContactForm } from "../ui/contact-form"
 
 export function HeroSection() {
   const [isResumeOpen, setIsResumeOpen] = useState(false)
+  const [isContactOpen, setIsContactOpen] = useState(false)
 
   return (
     <div className="relative min-h-screen bg-[#111111] overflow-hidden">
@@ -57,7 +59,7 @@ export function HeroSection() {
           </button>
           <div className="flex items-center gap-6">
             <motion.a
-              href="https://github.com/nanayawisrael"
+              href="https://github.com/nanayawdev"
               target="_blank"
               rel="noopener noreferrer"
               initial={{ opacity: 0, y: -20 }}
@@ -112,13 +114,13 @@ export function HeroSection() {
               transition={{ delay: 0.4 }}
               className="flex flex-col xs:flex-row gap-4"
             >
-              <Link
-                href="#contact"
+              <button
+                onClick={() => setIsContactOpen(true)}
                 className="group inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-black font-medium hover:bg-gray-100 transition-colors"
               >
                 Let&apos;s Talk
                 <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-              </Link>
+              </button>
               <button 
                 onClick={() => window.location.href = '#portfolio'}
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-white/20 text-white hover:bg-white/10 transition-colors"
@@ -133,6 +135,12 @@ export function HeroSection() {
         <ResumeSheet 
           isOpen={isResumeOpen} 
           onClose={() => setIsResumeOpen(false)} 
+        />
+
+        {/* Contact Form */}
+        <ContactForm 
+          isOpen={isContactOpen}
+          onClose={() => setIsContactOpen(false)}
         />
       </div>
     </div>
