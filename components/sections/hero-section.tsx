@@ -3,8 +3,12 @@
 import { motion } from "framer-motion"
 import { ArrowUpRight, Github, Linkedin, Twitter } from "lucide-react"
 import Link from "next/link"
+import { useState } from "react"
+import { ResumeSheet } from "../ui/resume-sheet"
 
 export function HeroSection() {
+  const [isResumeOpen, setIsResumeOpen] = useState(false)
+
   return (
     <div className="relative min-h-screen bg-[#111111] overflow-hidden">
       {/* Animated gradient background */}
@@ -40,36 +44,29 @@ export function HeroSection() {
             NY<span className="font-light">CRE8IVE</span>
           </Link>
           <button 
-            onClick={() => window.location.href = '/'}
+            onClick={() => setIsResumeOpen(true)}
             className="text-gray-400 hover:text-white text-sm transition-colors"
           >
-            Home
+            Resume
           </button>
           <button 
-            onClick={() => window.location.href = '#portfolio'}
+            onClick={() => window.location.href = '/videos'}
             className="text-gray-400 hover:text-white text-sm transition-colors"
           >
-            Portfolio
+            Videos
           </button>
           <div className="flex items-center gap-6">
-            {[
-              { icon: Github, href: "https://github.com/nanayawisrael" },
-              { icon: Twitter, href: "https://twitter.com/nycre8ivestudio" },
-              { icon: Linkedin, href: "https://linkedin.com/in/nanayawisrael" },
-            ].map((social, index) => (
-              <motion.a
-                key={social.href}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 + index * 0.1 }}
-                className="p-2 text-gray-400 hover:text-white transition-colors"
-              >
-                <social.icon className="w-5 h-5" />
-              </motion.a>
-            ))}
+            <motion.a
+              href="https://github.com/nanayawisrael"
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="p-2 text-gray-400 hover:text-white transition-colors"
+            >
+              <Github className="w-5 h-5" />
+            </motion.a>
           </div>
         </nav>
 
@@ -83,7 +80,7 @@ export function HeroSection() {
                 animate={{ opacity: 1, y: 0 }}
                 className="inline-block px-4 py-1.5 rounded-full text-sm bg-[#222] border border-[#333]"
               >
-                <span className="mr-2 inline-block w-2 h-2 rounded-full bg-orange-500 animate-pulse" />
+                <span className="mr-2 inline-block w-2 h-2 rounded-full bg-green-500 animate-pulse" />
                 Available for Projects
               </motion.div>
               
@@ -131,6 +128,12 @@ export function HeroSection() {
             </motion.div>
           </div>
         </div>
+
+        {/* Resume Sheet */}
+        <ResumeSheet 
+          isOpen={isResumeOpen} 
+          onClose={() => setIsResumeOpen(false)} 
+        />
       </div>
     </div>
   )
