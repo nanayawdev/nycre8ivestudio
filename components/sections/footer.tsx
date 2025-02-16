@@ -47,7 +47,7 @@ export function Footer() {
                 href="mailto:nanayawisrael@gmail.com"
                 className="text-xl xs:text-2xl sm:text-3xl text-white hover:text-gray-300 transition-colors"
               >
-                nanayawisrael@gmail.com
+                me@nycre8ivestudio.com
               </Link>
             </div>
 
