@@ -63,6 +63,21 @@ const processSteps: ProcessStep[] = [
   },
   {
     number: "04",
+    title: "Urban\nTickets",
+    description: "A dynamic platform for buying and selling tickets for events.",
+    duration: "View Project",
+    url: "https://www.urbantickets.app",
+    icon: (
+      <div className="relative w-24 h-24">
+        <div className="absolute right-0 w-16 h-16 bg-blue-500/30 blur-2xl" />
+        <div className="relative z-10 w-16 h-16 bg-white/10 backdrop-blur-xl rounded-2xl" />
+        <div className="absolute top-2 right-2 z-20 w-16 h-16 bg-blue-500/50 rounded-2xl" />
+      </div>
+    ),
+    glowColor: "from-blue-500/20 via-blue-500/10 to-transparent",
+  },
+  {
+    number: "05",
     title: "Atinka\nNews",
     description: "A dynamic news platform delivering the latest updates and stories to readers.",
     duration: "View Project",
